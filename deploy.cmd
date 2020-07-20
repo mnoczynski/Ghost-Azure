@@ -84,6 +84,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   call :ExecuteCmd !NPM_CMD! config set audit false
   call :ExecuteCmd !NPM_CMD! config set loglevel silent
   call :ExecuteCmd !NPM_CMD! install --production --no-package-lock
+  call :ExecuteCMD !NPM_CMD! install ghost-azure-storage
   call :ExecuteCmd !NPM_CMD! prune
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
